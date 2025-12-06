@@ -19,22 +19,22 @@ export const chatData: ChatBubble[] = [
     {
         id: 1,
         type: 'text',
-        content: '🔥 ¿Quieres transformar tu cuerpo sin necesidad de ir al gimnasio? 🔥'
+        content: '🔥 ¿Quieres <strong>transformar tu cuerpo</strong> sin necesidad de <strong>ir al gimnasio</strong>? 🔥'
     },
     {
         id: 2,
         type: 'text',
-        content: 'Si quieres perder peso, ganar músculo y mejorar tu salud con entrenamientos de calistenia en casa, tengo algo especial para ti.'
+        content: 'Si quieres <strong>perder peso</strong>, <strong>ganar músculo</strong> y <strong>mejorar tu salud</strong> con entrenamientos de <span class="elite-highlight">calistenia en casa</span>, tengo algo especial para ti.'
     },
     {
         id: 3,
         type: 'text',
-        content: 'En solo 15 minutos al día, puedes tener resultados visibles en 28 días.'
+        content: 'En solo <strong>15 minutos al día</strong>, puedes tener <span class="elite-highlight">resultados visibles en 28 días</span>.'
     },
     {
         id: 4,
         type: 'options',
-        content: '👉 Antes de mostrarte cómo, cuéntame: ¿cuál es tu mayor desafío hoy?',
+        content: '👉 Antes de mostrarte cómo, cuéntame: <strong>¿cuál es tu mayor desafío hoy?</strong>',
         variable: 'motivo selecionado',
         options: [
             { label: 'Perder peso', value: 'Perder peso' },
@@ -46,14 +46,14 @@ export const chatData: ChatBubble[] = [
     {
         id: 5,
         type: 'input-number',
-        content: '¡Perfecto! Cuéntame, ¿qué edad tienes?',
+        content: '¡Perfecto! Cuéntame, <strong>¿qué edad tienes?</strong>',
         variable: 'age',
         placeholder: 'Escribe tu edad...'
     },
     {
         id: 6,
         type: 'options',
-        content: '¡Genial! ¿Y ya has intentado entrenamientos de calistenia antes?',
+        content: '¡Genial! <strong>¿Y ya has intentado entrenamientos de calistenia antes?</strong>',
         options: [
             { label: 'Sí', value: 'Sí' },
             { label: 'No', value: 'No' }
@@ -62,7 +62,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 7,
         type: 'options',
-        content: 'Entendido. ¿Y cuál es tu objetivo principal hoy?',
+        content: 'Entendido. <strong>¿Y cuál es tu objetivo principal hoy?</strong>',
         options: [
             { label: 'Perder Peso', value: 'Perder Peso' },
             { label: 'Ganar masa muscular', value: 'Ganar masa muscular' },
@@ -73,7 +73,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 8,
         type: 'options',
-        content: '¡Bien! ¿Cómo describirías tu físico actual?',
+        content: '¡Bien! <strong>¿Cómo describirías tu físico actual?</strong>',
         options: [
             { label: 'Con sobrepeso', value: 'Con sobrepeso' },
             { label: 'Un poco de sobrepeso', value: 'Un poco de sobrepeso' },
@@ -84,7 +84,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 9,
         type: 'options',
-        content: '¿Y cuál sería tu "cuerpo soñado"?',
+        content: '<strong>¿Y cuál sería tu "cuerpo soñado"?</strong>',
         options: [
             { label: 'Solo unas tallas menos', value: 'Solo unas tallas menos' },
             { label: 'Fuerte con muchos músculos', value: 'Fuerte con muchos músculos' },
@@ -95,19 +95,19 @@ export const chatData: ChatBubble[] = [
     {
         id: 10,
         type: 'text',
-        content: '¡Perfecto, vamos a armar un plan exclusivo para ti, amigo!'
+        content: '¡Perfecto, vamos a armar un <span class="elite-highlight">plan exclusivo para ti</span>, <strong>amigo</strong>!'
     },
     {
         id: 11,
         type: 'input-text',
-        content: 'Pero antes, dime, ¿cuál es tu nombre?',
+        content: 'Pero antes, dime, <strong>¿cuál es tu nombre?</strong>',
         variable: 'nome',
         placeholder: 'Escribe tu nombre...'
     },
     {
         id: 12,
         type: 'options',
-        content: '¿Cómo funciona tu metabolismo?',
+        content: '<strong>¿Cómo funciona tu metabolismo?</strong>',
         options: [
             { label: 'Gano peso rápidamente, pero lo pierdo lentamente', value: 'Gano peso rápidamente, pero lo pierdo lentamente' },
             { label: 'Me cuesta ganar peso o músculo', value: 'Me cuesta ganar peso o músculo' },
@@ -117,7 +117,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 13,
         type: 'options',
-        content: '{{nome}}, ¿hace cuánto tiempo estuviste en la mejor forma física de tu vida?',
+        content: '{{nome}}, <strong>¿hace cuánto tiempo estuviste en la mejor forma física de tu vida?</strong>',
         options: [
             { label: 'Hace menos de un año', value: 'Hace menos de un año' },
             { label: 'Hace 1 a 2 años', value: 'Hace 1 a 2 años' },
@@ -128,7 +128,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 14,
         type: 'options',
-        content: '{{nome}}, ya casi termino, solo respóndeme unas preguntitas más, por favor. ¿Qué zona del cuerpo te gustaría trabajar primero?',
+        content: '{{nome}}, ya casi termino, solo respóndeme unas preguntitas más, por favor. <strong>¿Qué zona del cuerpo te gustaría trabajar primero?</strong>',
         options: [
             { label: 'Abdomen', value: 'Abdomen' },
             { label: 'Brazos', value: 'Brazos' },
@@ -139,7 +139,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 15,
         type: 'options',
-        content: '¿Sueles hacer bastante ejercicio físico?',
+        content: '<strong>¿Sueles hacer bastante ejercicio físico?</strong>',
         options: [
             { label: 'Casi todos los días', value: 'Casi todos los días' },
             { label: 'Algunas veces a la semana', value: 'Algunas veces a la semana' },
@@ -150,7 +150,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 16,
         type: 'options',
-        content: 'Entendido {{nome}}, cuéntame, ¿cómo describirías tu día a día?',
+        content: 'Entendido {{nome}}, cuéntame, <strong>¿cómo describirías tu día a día?</strong>',
         options: [
             { label: 'Paso la mayor parte del día sentado', value: 'Paso la mayor parte del día sentado' },
             { label: 'Hago pausas activas', value: 'Hago pausas activas' },
@@ -160,7 +160,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 17,
         type: 'options',
-        content: '¿Cuántas horas sueles dormir por noche?',
+        content: '<strong>¿Cuántas horas sueles dormir por noche?</strong>',
         options: [
             { label: 'Menos de 5 horas', value: 'Menos de 5 horas' },
             { label: '5-6 horas', value: '5-6 horas' },
@@ -171,7 +171,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 18,
         type: 'options',
-        content: '¿Cuál es tu principal motivo para ponerte en forma?',
+        content: '<strong>¿Cuál es tu principal motivo para ponerte en forma?</strong>',
         options: [
             { label: '💪 Sentirme más seguro con mi cuerpo', value: '💪 Sentirme más seguro con mi cuerpo' },
             { label: '🔋 Sentirme más saludable y con energía', value: '🔋 Sentirme más saludable y con energía' },
@@ -182,26 +182,26 @@ export const chatData: ChatBubble[] = [
     {
         id: 19,
         type: 'input-number',
-        content: '¡Perfecto {{nome}}! Dime, ¿cuál es tu peso actual en kg?',
+        content: '¡Perfecto {{nome}}! Dime, <strong>¿cuál es tu peso actual en kg?</strong>',
         variable: 'current_weight',
         placeholder: 'Ej: 75'
     },
     {
         id: 20,
         type: 'input-number',
-        content: '¡Entendido! ¿Y cuál es el peso que quieres alcanzar en kg?',
+        content: '¡Entendido! <strong>¿Y cuál es el peso que quieres alcanzar en kg?</strong>',
         variable: 'peso desejado',
         placeholder: 'Ej: 70'
     },
     {
         id: 21,
         type: 'text',
-        content: '{{nome}}, estoy terminando de armar tu plan de entrenamiento de calistenia. Mientras tanto, déjame mostrarte los resultados de algunos alumnos que hicieron el entrenamiento...'
+        content: '{{nome}}, estoy <strong>terminando de armar tu plan de entrenamiento de calistenia</strong>. Mientras tanto, déjame mostrarte los resultados de algunos alumnos que hicieron el entrenamiento...'
     },
     {
         id: 22,
         type: 'text',
-        content: 'Mira el resultado de Martín, de 53 años, que aun comiendo lo que le gusta, logró perder 17 kg y consiguió librarse del dolor de espalda que lo atormentaba todos los días...'
+        content: 'Mira el resultado de <strong>Martín, de 53 años</strong>, que aun comiendo lo que le gusta, logró <strong>perder 17 kg</strong> y consiguió librarse del <strong>dolor de espalda</strong> que lo atormentaba todos los días...'
     },
     {
         id: 23,
@@ -211,7 +211,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 24,
         type: 'text',
-        content: 'Y Marcelo, de 37 años. Fue su esposa Valeria quien me buscó y me dijo que él tenía muchos dolores en las articulaciones. Con solo 40 minutos al día, él terminó perdiendo 7 kg y conquistó este resultado increíble...'
+        content: 'Y <strong>Marcelo, de 37 años</strong>. Fue su esposa Valeria quien me buscó y me dijo que él tenía muchos dolores en las articulaciones. Con solo <strong>40 minutos al día</strong>, él terminó <strong>perdiendo 7 kg</strong> y conquistó este <span class="elite-highlight">resultado increíble</span>...'
     },
     {
         id: 25,
@@ -221,7 +221,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 26,
         type: 'options',
-        content: '{{nome}}, ¿te gustaría tener resultados increíbles como los que ellos tuvieron?',
+        content: '{{nome}}, <strong>¿te gustaría tener resultados increíbles como los que ellos tuvieron?</strong>',
         options: [
             { label: '👍 ¡SÍ, YO QUIERO!', value: '👍 ¡SÍ, YO QUIERO!' }
         ]
@@ -229,32 +229,32 @@ export const chatData: ChatBubble[] = [
     {
         id: 27,
         type: 'text',
-        content: '¿Sabes qué tienen todos ellos en común?'
+        content: '<strong>¿Sabes qué tienen todos ellos en común?</strong>'
     },
     {
         id: 28,
         type: 'text',
-        content: 'Siguieron el Plan de Entrenamientos personalizado que hice para cada uno de ellos y para más de 3500 hombres en los últimos dos años.'
+        content: 'Siguieron el <span class="elite-highlight">Plan de Entrenamientos personalizado</span> que hice para cada uno de ellos y para más de 3500 hombres en los últimos dos años.'
     },
     {
         id: 29,
         type: 'text',
-        content: 'Pero ahora, déjame explicarte cómo funciona... Recibirás entrenamientos personalizados en video-clases exclusivamente para ti, ¡todos los días!'
+        content: 'Pero ahora, déjame explicarte cómo funciona... Recibirás <strong>entrenamientos personalizados</strong> en video-clases exclusivamente para ti, <strong>¡todos los días!</strong>'
     },
     {
         id: 30,
         type: 'text',
-        content: 'Ejercicios que puedes hacer en casa, sin ningún equipo:'
+        content: 'Ejercicios que puedes hacer en casa, <strong>sin ningún equipo</strong>:'
     },
     {
         id: 31,
         type: 'text',
-        content: '✅ Pérdida de peso\n✅ Ganancia de masa magra\n✅ Alivio de dolores de espalda\n✅ Mejora de la postura\n✅ Aumento de testosterona\n✅ Aumento de la libido\n✅ Mejora de la flexibilidad\n✅ Se puede hacer en casa\n✅ Sin aparatos, no necesitas comprar NADA.'
+        content: '✅ <strong>Pérdida de peso</strong>\n✅ <strong>Ganancia de masa magra</strong>\n✅ <strong>Alivio de dolores de espalda</strong>\n✅ <strong>Mejora de la postura</strong>\n✅ <strong>Aumento de testosterona</strong>\n✅ <strong>Aumento de la libido</strong>\n✅ <strong>Mejora de la flexibilidad</strong>\n✅ Se puede hacer en casa\n✅ <strong>Sin aparatos</strong>, no necesitas comprar NADA.'
     },
     {
         id: 32,
         type: 'options',
-        content: '{{nome}}, ¿estás preparado para esta transformación en tu vida?',
+        content: '{{nome}}, <strong>¿estás preparado para esta transformación en tu vida?</strong>',
         options: [
             { label: '¡SÍ, ACEPTO EL DESAFÍO!', value: '¡SÍ, ACEPTO EL DESAFÍO!' }
         ]
@@ -262,12 +262,12 @@ export const chatData: ChatBubble[] = [
     {
         id: 33,
         type: 'text',
-        content: '{{nome}}, ¡tu Plan de entrenamiento de calistenia para {{motivo selecionado}} está listo!'
+        content: '{{nome}}, ¡tu <strong>Plan de entrenamiento de calistenia para {{motivo selecionado}}</strong> está listo!'
     },
     {
         id: 34,
         type: 'text',
-        content: 'De acuerdo con la información que me diste, la previsión es que estarás con {{peso desejado}} kg para el {{target_date}}.'
+        content: 'De acuerdo con la información que me diste, la previsión es que estarás con <strong>{{peso desejado}} kg</strong> para el <span class="elite-highlight">{{target_date}}</span>.'
     },
     {
         id: 35,
@@ -277,7 +277,7 @@ export const chatData: ChatBubble[] = [
     {
         id: 36,
         type: 'options',
-        content: '¿Estás preparado para esta transformación?',
+        content: '<strong>¿Estás preparado para esta transformación?</strong>',
         options: [
             { label: '¡SÍ, ESTOY PREPARADO!', value: '¡SÍ, ESTOY PREPARADO!' }
         ]
@@ -285,32 +285,32 @@ export const chatData: ChatBubble[] = [
     {
         id: 37,
         type: 'text',
-        content: '{{nome}}, no me gusta ver que una mensualidad de calistenia en gimnasios de tu país pueda llegar a costar unos $40 USD al mes. ¡Sin contar nutriólogos y entrenadores personales! Me parece una locura...'
+        content: '{{nome}}, no me gusta ver que una mensualidad de calistenia en gimnasios de tu país pueda llegar a costar unos <strong>$40 USD al mes</strong>. ¡Sin contar nutriólogos y entrenadores personales! Me parece una locura...'
     },
     {
         id: 38,
         type: 'text',
-        content: 'Por eso quiero ofrecerte esto sin ningún costo de mensualidad. Sí, es eso mismo, el acompañamiento es totalmente gratuito.'
+        content: 'Por eso quiero ofrecerte esto sin ningún costo de mensualidad. Sí, es eso mismo, el acompañamiento es <strong>totalmente gratuito</strong>.'
     },
     {
         id: 39,
         type: 'text',
-        content: 'Pero, para mantener todo funcionando y garantizar que tengas la mejor experiencia, cobramos una pequeña cuota de inscripción ÚNICA de SOLO $9 USD. Es el valor que la Plataforma me cobra para hospedar las clases de los entrenamientos.'
+        content: 'Pero, para mantener todo funcionando y garantizar que tengas la mejor experiencia, cobramos una pequeña cuota de inscripción ÚNICA de SOLO <span class="elite-highlight">$9 USD</span>. Es el valor que la Plataforma me cobra para hospedar las clases de los entrenamientos.'
     },
     {
         id: 40,
         type: 'text',
-        content: 'Esta pequeña contribución me ayuda a mantener todo esto vivo, a continuar apoyando y transformando la vida de tantos hombres. Y es también una forma de sellar nuestro compromiso juntos. ¡Pagas solo 1 vez y tienes acceso para siempre con todas las actualizaciones y nuevos entrenamientos!'
+        content: 'Esta pequeña contribución me ayuda a mantener todo esto vivo, a continuar apoyando y transformando la vida de tantos hombres. Y es también una forma de sellar nuestro compromiso juntos. <strong>¡Pagas solo 1 vez y tienes acceso para siempre con todas las actualizaciones y nuevos entrenamientos!</strong>'
     },
     {
         id: 41,
         type: 'text',
-        content: '{{nome}}, además, si en un plazo de 90 días sientes que no estás viendo el cambio que esperabas, te prometo que te devuelvo cada centavo.'
+        content: '{{nome}}, además, si en un plazo de 90 días sientes que no estás viendo el cambio que esperabas, te prometo que <span class="elite-highlight">te devuelvo cada centavo</span>.'
     },
     {
         id: 42,
         type: 'text',
-        content: 'Cuando finalices el pago, voy a liberar 3 bonos extra para ti por haber estado conmigo hasta ahora...'
+        content: 'Cuando finalices el pago, voy a liberar <span class="elite-highlight">3 bonos extra</span> para ti por haber estado conmigo hasta ahora...'
     },
     {
         id: 43,

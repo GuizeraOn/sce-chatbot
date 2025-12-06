@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void-black: #050505;
-  --color-carbon-charcoal: #121212;
+  --color-void-black: #000000;
+  --color-carbon-charcoal: #262626;
+  /* IG Dark Gray */
   --color-elite-gold: #D4AF37;
-  --color-ice-white: #E5E5E5;
+  --color-ice-white: #F5F5F5;
   --color-user-bubble: #2A2A2A;
 
   --font-montserrat: Montserrat, sans-serif;
@@ -18,11 +19,11 @@ body {
 }
 
 .chat-bubble-system {
-  @apply bg-carbon-charcoal text-ice-white/90 p-4 rounded-2xl rounded-tl-sm max-w-[85%] mb-4;
+  @apply bg-carbon-charcoal text-white px-4 py-2 rounded-3xl max-w-[75%] mb-1;
 }
 
 .chat-bubble-user {
-  @apply bg-user-bubble text-ice-white border border-gray-700 p-4 rounded-2xl rounded-tr-sm max-w-[85%] w-fit ml-auto mb-4;
+  @apply bg-gradient-to-br from-[#B8860B] to-[#D4AF37] text-white px-4 py-2 rounded-3xl max-w-[75%] w-fit ml-auto mb-1;
 }
 
 .gold-glow {
@@ -30,7 +31,7 @@ body {
 }
 
 .typing-dot {
-  @apply w-2 h-2 bg-elite-gold rounded-full animate-bounce;
+  @apply w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce;
 }
 
 @keyframes fadeIn {
@@ -61,4 +62,32 @@ body {
 
 .animate-fade-in-up {
   animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.elite-highlight {
+  @apply text-elite-gold font-bold drop-shadow-sm;
+}
+
+@keyframes goldPulse {
+  0% {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.1);
+  }
+
+  50% {
+    border-color: rgba(212, 175, 55, 1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+  }
+
+  100% {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.1);
+  }
+}
+
+.input-spotlight {
+  animation: goldPulse 1.5s infinite ease-in-out;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #D4AF37;
 }
