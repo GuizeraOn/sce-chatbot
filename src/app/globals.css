@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void-black: #050505;
+  --color-carbon-charcoal: #121212;
+  --color-elite-gold: #D4AF37;
+  --color-ice-white: #E5E5E5;
+  --color-user-bubble: #2A2A2A;
+
+  --font-montserrat: Montserrat, sans-serif;
+  --font-inter: Inter, sans-serif;
+}
+
+body {
+  background-color: var(--color-void-black);
+  color: var(--color-ice-white);
+  font-family: var(--font-inter);
+}
+
+.chat-bubble-system {
+  @apply bg-carbon-charcoal text-ice-white/90 p-4 rounded-2xl rounded-tl-sm max-w-[85%] mb-4;
+}
+
+.chat-bubble-user {
+  @apply bg-user-bubble text-ice-white border border-gray-700 p-4 rounded-2xl rounded-tr-sm max-w-[85%] w-fit ml-auto mb-4;
+}
+
+.gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.typing-dot {
+  @apply w-2 h-2 bg-elite-gold rounded-full animate-bounce;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
