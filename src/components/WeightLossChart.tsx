@@ -70,7 +70,7 @@ export default function WeightLossChart({ currentWeight, targetWeight }: WeightL
     if (!mounted) return null;
 
     return (
-        <div className="w-full h-64 bg-carbon-charcoal/50 rounded-2xl p-4 border border-gray-800 shadow-xl">
+        <div className="w-full h-64 bg-white rounded-2xl p-4 border border-gray-200 shadow-sm">
             <div className="flex justify-between mb-4 text-sm font-montserrat font-bold">
                 <span className="text-red-500">Actual: {currentWeight}kg</span>
                 <span className="text-green-500">Meta: {targetWeight}kg</span>
@@ -91,13 +91,13 @@ export default function WeightLossChart({ currentWeight, targetWeight }: WeightL
                         dataKey="name"
                         axisLine={false}
                         tickLine={false}
-                        tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                        tick={{ fill: '#4B5563', fontSize: 12 }}
                     />
                     <YAxis domain={['auto', 'auto']} hide />
-                    <CartesianGrid vertical={false} stroke="#374151" strokeDasharray="3 3" opacity={0.3} />
+                    <CartesianGrid vertical={false} stroke="#E5E7EB" strokeDasharray="3 3" opacity={0.5} />
                     <Tooltip
-                        contentStyle={{ backgroundColor: '#1F2937', borderRadius: '8px', border: 'none' }}
-                        itemStyle={{ color: '#E5E5E5' }}
+                        contentStyle={{ backgroundColor: '#FFFFFF', borderRadius: '8px', border: '1px solid #E5E7EB', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                        itemStyle={{ color: '#1F2937' }}
                         cursor={{ stroke: '#D4AF37', strokeWidth: 1 }}
                     />
                     <Area

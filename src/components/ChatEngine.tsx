@@ -45,29 +45,29 @@ const variantBBubbles: ChatBubble[] = [
 // SVG Icons
 const Icons = {
     BackArrow: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#262626]">
             <path d="M15 18l-6-6 6-6" />
         </svg>
     ),
     Phone: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#262626]">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
         </svg>
     ),
     Video: () => (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#262626]">
             <polygon points="23 7 16 12 23 17 23 7" />
             <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
         </svg>
     ),
     Camera: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-elite-gold">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-[#262626]">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-            <circle cx="12" cy="13" r="4" fill="none" stroke="black" strokeWidth="2" />
+            <circle cx="12" cy="13" r="4" fill="none" stroke="white" strokeWidth="2" />
         </svg>
     ),
     Mic: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#262626]">
             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
             <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
             <line x1="12" y1="19" x2="12" y2="23" />
@@ -75,14 +75,14 @@ const Icons = {
         </svg>
     ),
     Image: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#262626]">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
             <polyline points="21 15 16 10 5 21" />
         </svg>
     ),
     Sticker: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#262626]">
             <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
             <polyline points="14 2 14 8 20 8" />
         </svg>
@@ -297,20 +297,20 @@ export default function ChatEngine() {
     if (!variant || activeChatData.length === 0) return null; // Prevent hydration mismatch
 
     return (
-        <div className="flex flex-col h-screen bg-black mx-auto max-w-md shadow-2xl overflow-hidden font-inter relative">
+        <div className="flex flex-col h-screen bg-white mx-auto max-w-md shadow-2xl overflow-hidden font-inter relative">
             {/* Header - Fixed Top */}
-            <header className="bg-black p-4 flex items-center justify-between sticky top-0 z-20">
+            <header className="bg-white border-b border-gray-100 p-4 flex items-center justify-between sticky top-0 z-20">
                 <div className="flex items-center gap-3" suppressHydrationWarning>
                     <button className="p-1">
                         <Icons.BackArrow />
                     </button>
                     <div className="flex items-center gap-3" suppressHydrationWarning>
-                        <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-800">
+                        <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-200">
                             <img src="https://i.postimg.cc/j5JNhYQD/square-image-1.webp" alt="Bot Avatar" className="w-full h-full object-cover" />
                         </div>
                         <div className="flex flex-col">
-                            <h1 className="text-white text-[15px] font-semibold leading-tight">Javier Martinez</h1>
-                            <span className="text-xs text-gray-400">Activo ahora</span>
+                            <h1 className="text-[#262626] text-[15px] font-semibold leading-tight">Javier Martinez</h1>
+                            <span className="text-xs text-gray-500">Activo ahora</span>
                         </div>
                     </div>
                 </div>
@@ -321,7 +321,7 @@ export default function ChatEngine() {
             </header>
 
             {/* Chat Area */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-2 bg-black scrollbar-hide">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-2 bg-white scrollbar-hide">
                 {messages.map((msg: any, index: number) => {
                     const isLastMessage = index === messages.length - 1;
 
@@ -383,9 +383,9 @@ export default function ChatEngine() {
                                         <div className="flex flex-col gap-2 items-end">
                                             {msg.options?.map((opt: Option) => (
                                                 <button
-                                                    key={opt.value}
+                                                    key={opt.label}
                                                     onClick={() => handleOptionClick(opt, msg)}
-                                                    className="bg-transparent border border-gray-600 text-white px-5 py-2.5 rounded-full hover:bg-gray-800 transition-all duration-200 text-sm font-medium text-right"
+                                                    className="bg-[#3797F0] border border-transparent text-white px-5 py-2.5 rounded-3xl hover:bg-[#0084FF] transition-all duration-200 text-sm font-medium text-right shadow-sm"
                                                 >
                                                     {opt.label}
                                                 </button>
@@ -404,7 +404,7 @@ export default function ChatEngine() {
                                     {msg.type === 'redirect' && (
                                         <a
                                             href={msg.redirectUrl}
-                                            className="block w-full text-center bg-elite-gold text-black font-semibold text-lg py-3 rounded-xl transform hover:scale-[1.02] transition-transform active:scale-95"
+                                            className="block w-full text-center bg-gradient-to-r from-[#3797F0] to-[#0084FF] text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-blue-500/30 transform hover:scale-[1.02] transition-all active:scale-95 hover:shadow-blue-500/50"
                                         >
                                             {processedContent || 'Click Here'}
                                         </a>
@@ -429,17 +429,18 @@ export default function ChatEngine() {
                         </div>
                     </div>
                 )}
+
                 <div ref={bottomRef} className="pb-4" />
             </div>
 
             {/* Footer Input Area (IG Style) */}
-            <div className="bg-black p-3 pb-6 flex items-center gap-3 sticky bottom-0 z-20" suppressHydrationWarning>
-                <div className="p-2 bg-gray-900 rounded-full cursor-pointer hover:bg-gray-800 transition-colors">
+            <div className="bg-white p-3 pb-6 flex items-center gap-3 sticky bottom-0 z-20" suppressHydrationWarning>
+                <div className="p-2 bg-[#EFEFEF] rounded-full cursor-pointer hover:bg-gray-200 transition-colors">
                     <Icons.Camera />
                 </div>
 
                 <div
-                    className={`flex-1 bg-[#262626] rounded-full flex items-center px-4 py-3 gap-2 transition-all duration-300 ${showSpotlight ? 'input-spotlight' : 'border border-transparent'
+                    className={`flex-1 bg-[#EFEFEF] rounded-full flex items-center px-4 py-3 gap-2 transition-all duration-300 ${showSpotlight ? 'input-spotlight' : 'border border-transparent'
                         }`}
                 >
                     {/* If current step requires input, we bind this input to the logic, otherwise it's decorative or disabled */}
@@ -454,13 +455,13 @@ export default function ChatEngine() {
                                 onChange={(e) => setUserInput(e.target.value)}
                                 onFocus={() => setIsInputFocused(true)}
                                 placeholder={showSpotlight ? "👇 Escribe tu respuesta aquí..." : "Mensaje..."}
-                                className="bg-transparent text-white text-[15px] w-full focus:outline-none placeholder-gray-400"
+                                className="bg-transparent text-[#262626] text-[15px] w-full focus:outline-none placeholder-gray-500"
                                 autoFocus
                             />
                             {userInput.trim().length > 0 && (
                                 <button
                                     type="submit"
-                                    className="text-elite-gold font-semibold text-sm hover:text-white transition-colors"
+                                    className="text-[#3797F0] font-semibold text-sm hover:text-[#0084FF] transition-colors"
                                 >
                                     Enviar
                                 </button>
@@ -470,13 +471,13 @@ export default function ChatEngine() {
                         <input
                             type="text"
                             placeholder="Mensaje..."
-                            className="bg-transparent text-white text-[15px] w-full focus:outline-none placeholder-gray-400"
+                            className="bg-transparent text-[#262626] text-[15px] w-full focus:outline-none placeholder-gray-500"
                             disabled
                         />
                     )}
 
                     {!userInput && (
-                        <div className="flex items-center gap-3 text-white" suppressHydrationWarning>
+                        <div className="flex items-center gap-3 text-[#262626]" suppressHydrationWarning>
                             <Icons.Sticker />
                         </div>
                     )}
