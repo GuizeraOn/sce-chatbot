@@ -18,6 +18,30 @@ const getFutureDate = (days: number) => {
     return formatDate(date);
 };
 
+// Traffic Router Constants
+const VARIANT_KEY = 'ab_test_variant';
+const VARIANT_A = 'VARIANT_A';
+const VARIANT_B = 'VARIANT_B';
+
+// Variant B Custom Bubbles
+const variantBBubbles: ChatBubble[] = [
+    {
+        id: 1001,
+        type: 'text',
+        content: '👋 ¡Hola! ¿Quieres recibir un plan de calistenia y ponerte en forma en los próximos 28 días?'
+    },
+    {
+        id: 1002,
+        type: 'options',
+        content: '💪 Si quieres bajar de peso, ganar músculo o aumentar tu testosterona, esto lo cambiará todo. 👇',
+        variable: 'motivo selecionado', // Reuse variable to trigger logic
+        options: [
+            { label: '✅ Quiero ver cómo funciona', value: 'Todos' }, // Maps to 'transformar tu cuerpo por completo'
+            { label: '👍 Me interesa', value: 'Todos' }
+        ]
+    }
+];
+
 // SVG Icons
 const Icons = {
     BackArrow: () => (
@@ -73,7 +97,59 @@ export default function ChatEngine() {
     const [isInputFocused, setIsInputFocused] = useState(false);
     const [userInput, setUserInput] = useState('');
 
+    // A/B Test State
+    const [variant, setVariant] = useState<string | null>(null);
+    const [activeChatData, setActiveChatData] = useState<ChatBubble[]>([]);
+
     useEffect(() => {
+        // Initialize A/B Variant
+        let currentVariant = localStorage.getItem(VARIANT_KEY);
+
+        if (!currentVariant) {
+            currentVariant = Math.random() < 0.5 ? VARIANT_A : VARIANT_B;
+            localStorage.setItem(VARIANT_KEY, currentVariant);
+        }
+
+        setVariant(currentVariant);
+
+        // Log Experiment Start
+        console.log(`Experiment Start: ${currentVariant}`);
+        // Here you would also send to analytics provider
+
+        // Construct Chat Data based on Variant
+        const sckParam = currentVariant === VARIANT_A ? 'funnel_ver_a' : 'funnel_ver_b';
+
+        let flowData: ChatBubble[] = [];
+
+        if (currentVariant === VARIANT_B) {
+            // Path B: Skip Sources 1-5 (IDs 1-4).
+            // Original IDs:
+            // 1: text
+            // 2: text
+            // 3: text
+            // 4: options (Challenge)
+            // 5: input-number (Age)
+            // We skip 1, 2, 3, 4. So we start from ID 5.
+            const remainingOriginal = chatData.filter(bubble => bubble.id >= 5);
+            flowData = [...variantBBubbles, ...remainingOriginal];
+        } else {
+            // Path A: Original Flow
+            flowData = [...chatData];
+        }
+
+        // Apply sck tagging to the final redirect URL
+        flowData = flowData.map(bubble => {
+            if (bubble.type === 'redirect' && bubble.redirectUrl) {
+                const separator = bubble.redirectUrl.includes('?') ? '&' : '?';
+                return {
+                    ...bubble,
+                    redirectUrl: `${bubble.redirectUrl}${separator}sck=${sckParam}`
+                };
+            }
+            return bubble;
+        });
+
+        setActiveChatData(flowData);
         setVariables(prev => ({
             ...prev,
             'target_date': getFutureDate(30)
@@ -116,9 +192,10 @@ export default function ChatEngine() {
     };
 
     useEffect(() => {
-        if (currentIndex >= chatData.length) return;
+        if (activeChatData.length === 0) return; // Wait for data init
+        if (currentIndex >= activeChatData.length) return;
 
-        const currentBubble = chatData[currentIndex];
+        const currentBubble = activeChatData[currentIndex];
         const isUserInteractionReq = ['options', 'input-text', 'input-number', 'redirect'].includes(currentBubble.type);
 
         const lastMsg = messages[messages.length - 1];
@@ -144,7 +221,7 @@ export default function ChatEngine() {
         }, readingDelay);
 
         return () => clearTimeout(timer);
-    }, [currentIndex]);
+    }, [currentIndex, activeChatData]); // Added activeChatData dependency
 
     const replaceText = (text?: string) => {
         if (!text) return '';
@@ -214,8 +291,10 @@ export default function ChatEngine() {
     };
 
     // Derived state for the input spotlight
-    const isInputStep = ['input-text', 'input-number'].includes(chatData[currentIndex]?.type);
+    const isInputStep = ['input-text', 'input-number'].includes(activeChatData[currentIndex]?.type);
     const showSpotlight = isInputStep && !isTyping && !isInputFocused;
+
+    if (!variant || activeChatData.length === 0) return null; // Prevent hydration mismatch
 
     return (
         <div className="flex flex-col h-screen bg-black mx-auto max-w-md shadow-2xl overflow-hidden font-inter relative">
@@ -298,7 +377,7 @@ export default function ChatEngine() {
 
 
                             {/* Interaction Types */}
-                            {msg.id === chatData[currentIndex]?.id && currentIndex === chatData.indexOf(chatData.find(c => c.id === msg.id)!) && (
+                            {msg.id === activeChatData[currentIndex]?.id && currentIndex === activeChatData.indexOf(activeChatData.find(c => c.id === msg.id)!) && (
                                 <div className={`mt-2 ${!['redirect', 'options'].includes(msg.type) ? 'ml-9' : ''} space-y-2`}>
                                     {msg.type === 'options' && (
                                         <div className="flex flex-col gap-2 items-end">
@@ -364,13 +443,13 @@ export default function ChatEngine() {
                         }`}
                 >
                     {/* If current step requires input, we bind this input to the logic, otherwise it's decorative or disabled */}
-                    {['input-text', 'input-number'].includes(chatData[currentIndex]?.type) ? (
+                    {['input-text', 'input-number'].includes(activeChatData[currentIndex]?.type) ? (
                         <form
-                            onSubmit={(e) => handleInputSubmit(e, chatData[currentIndex])}
+                            onSubmit={(e) => handleInputSubmit(e, activeChatData[currentIndex])}
                             className="flex-1 flex items-center gap-2"
                         >
                             <input
-                                type={chatData[currentIndex]?.type === 'input-number' ? 'number' : 'text'}
+                                type={activeChatData[currentIndex]?.type === 'input-number' ? 'number' : 'text'}
                                 value={userInput}
                                 onChange={(e) => setUserInput(e.target.value)}
                                 onFocus={() => setIsInputFocused(true)}
